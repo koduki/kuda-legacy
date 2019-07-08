@@ -1,0 +1,13 @@
+name: exec-batch
+tasks:
+  - name: step-load
+    url: https://xxx-app1.run.app
+  - name: step-parallel1
+    dependencies: [step-load]
+    url: https://xxx-app2.run.app
+  - name: step-parallel2
+    dependencies: [step-load]
+    url: https://xxx-app3.run.app
+  - name: step-join
+    dependencies: [step-parallel1, step-parallel2]
+    url: https://xxx-app4.run.app
